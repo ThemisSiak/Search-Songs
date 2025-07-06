@@ -1,0 +1,76 @@
+/* Background color to pink */
+body {
+  background-color: #FFC0CB;
+}
+
+/* Center headings and forms */
+h1, form {
+  text-align: center;
+}
+
+/* Style the search button */
+input[type="submit"] {
+  background-color: #FF69B4;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* Style the search box */
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #FF69B4;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Style the results table */
+table {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+}
+
+td, th {
+  border: 1px solid #FF69B4;
+  text-align: left;
+  padding: 8px;
+  vertical-align: top;
+}
+
+tr:nth-child(even) {
+  background-color: #FFF0F5;
+}
+
+/* Highlighted search terms */
+.highlight {
+  font-weight: bold;
+  color: purple;
+}
+
+/* Expandable lyrics */
+.lyrics-container {
+  max-width: 500px;
+  word-wrap: break-word;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: #5c2d91;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9em;
+  padding: 0;
+  margin-top: 5px;
+}
