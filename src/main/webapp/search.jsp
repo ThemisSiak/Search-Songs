@@ -18,6 +18,20 @@
 </head>
 <body>
 	<h1>Search Song</h1>
+	<c:if test="${not empty sessionScope.history}">
+	  <div class="history-section">
+	    <h3>Your Recent Searches:</h3>
+	    <ul>
+	      <c:forEach var="q" items="${sessionScope.history}">
+	        <li><a href="SearchForSongs?query=${q}&field=all">${q}</a></li>
+	      </c:forEach>
+	    </ul>
+	    <form method="post" action="ClearHistory">
+	      <input type="submit" value="Clear History" />
+	    </form>
+	  </div>
+	</c:if>
+	
     <form method=post action=SearchForSongs>
     	<select name=field id=field>
         	<option value="all">All Fields</option>

@@ -74,3 +74,26 @@ tr:nth-child(even) {
   padding: 0;
   margin-top: 5px;
 }
+
+.history-section {
+  background-color: #fff0f5;
+  padding: 10px;
+  border: 1px solid #ff69b4;
+  margin-bottom: 15px;
+}
+
+.history-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.history-section li {
+  margin-bottom: 4px;
+}
+
+.history-section a {
+  color: #800080;
+  text-decoration: none;
+  font-weight: bold;
+}
+

@@ -18,6 +18,17 @@
 	    <div style="color:red; text-align:center;">${error}</div>
 	</c:if>
 	
+	<c:if test="${not empty suggestions}">
+        <div>
+            <h4>Did you mean:</h4>
+            <ul>
+                <c:forEach var="s" items="${suggestions}">
+                    <li><a href="SearchForSongs?query=${s}&field=${param.field}">${s}</a></li>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
+	
 	<c:if test="${empty results}">
 	    <p style="text-align:center;">No results found.</p>
 	</c:if>
