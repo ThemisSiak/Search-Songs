@@ -12,7 +12,6 @@ public class SongExcel{
 	public SongExcel() {}
 	
 	public void readFile() throws IOException{
-		//open file
 		BufferedReader read = new BufferedReader(new FileReader("inputFile\\spotify_millsongdata.csv"));
 		SongDocument doc = new SongDocument("indexedFiles");
 		
@@ -21,34 +20,33 @@ public class SongExcel{
 		Document newdoc;
 		String line = read.readLine();
 		line =read.readLine();
-		int i =1;	//number of document
+		int numDocument =1;
 		String temp = line;
 		String temp2 = "\"" + "\"";
 		
 		while(line !=null) {
 			String[] fields = line.split(",");
-			String ar = fields[0];	//artist
-			String t = fields[1];	//title
-			String al = fields[2];	//album
-			String l = fields[3];	//lyrics
+			String artist = fields[0];
+			String title = fields[1];
+			String album = fields[2];
+			String lyrics = fields[3];
 			
 			//check if the title has commas, so it seperates the line in more fields
-			char firstChar = al.charAt(0);
+			char firstChar = album.charAt(0);
 			int j = 1;
 			
 			while(firstChar != '/') {
-				t = t + "," + al;
-				al = fields[2+j];
-				l = fields[3+j];
+				title = title + "," + album;
+				album = fields[2+j];
+				lyrics = fields[3+j];
 				j ++;
-				firstChar = al.charAt(0);
+				firstChar = album.charAt(0);
 			}
-			//System.out.print(fields.length);
 			if(fields.length > 3+j) {
-				l = l + fields[3+j];
+				lyrics = lyrics + fields[3+j];
 			}
 			
-			StringBuilder sb = new StringBuilder(l);
+			StringBuilder sb = new StringBuilder(lyrics);
 			while(line != null && !line.endsWith("\"")) {
 				line = read.readLine();
 				temp = line;
@@ -56,26 +54,24 @@ public class SongExcel{
 				sb.append(line);
 			}
 			
-			l = sb.toString();
+			lyrics = sb.toString();
 		
-			newsong.setArtist(stripHtmlTags(ar));
-			newsong.setTitle(stripHtmlTags(t));
-			newsong.setAlbum(stripHtmlTags(al));
-			newsong.setLyrics(stripHtmlTags(l));
+			newsong.setArtist(stripHtmlTags(artist));
+			newsong.setTitle(stripHtmlTags(title));
+			newsong.setAlbum(stripHtmlTags(album));
+			newsong.setLyrics(stripHtmlTags(lyrics));
 			
 			newdoc = doc.indexSong(newsong);
-			System.out.print(newdoc +"number"+ i);
+			System.out.print(newdoc +"number"+ numDocument + "\n");
 			
 			//check if in the end of the file we have "", read two more lines, because they are null
-			//System.out.print(temp);
 			if (temp.endsWith(temp2)) {
 				line = read.readLine();
 				line = read.readLine();
 			}
 			
 			line =read.readLine();
-			//System.out.print(line);
-			i++;
+			numDocument++;
 		}
 		doc.close();
 		read.close();
@@ -84,7 +80,7 @@ public class SongExcel{
 	
 	private String stripHtmlTags(String input) {
 	    if (input == null) return "";
-	    return input.replaceAll("<[^>]*>", ""); // removes all <...> tags
+	    return input.replaceAll("<[^>]*>", "");
 	}
 
 	
