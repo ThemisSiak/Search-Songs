@@ -1,4 +1,8 @@
-# SongSearch
+<p align="center">
+  <img src="./Logo.jpeg" alt="Preview" width="200"/>
+</p>
+
+# <p align="center"> **SongSearch**</p>
 
 **SongSearch** is a Java web application that allows users to search through thousands of song lyrics, titles, artists, and albums using Apache Lucene.
 
@@ -12,6 +16,13 @@
 -  Clickable lyrics: Show preview → Expand to full
 -  "Surprise Me" button generates random queries
 -  Pagination with "Next" and "Previous" buttons
+- **Recent search history per user** (stored in session)  
+  <br>
+  - Displayed on the main page  
+  - Clickable for quick re-search  
+  - Clearable via a “Clear History” button
+
+- Smart query suggestions based on your own recent searches
 
 ---
 
