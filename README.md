@@ -1,12 +1,12 @@
 # SongSearch
 
-**SongSearch** is a Java web application that allows users to search through thousands of song lyrics, titles, artists, and albums using Apache Lucene. The project features a web interface with highlighting, pagination, and interactive lyric previews — all styled with a playful pink theme.
+**SongSearch** is a Java web application that allows users to search through thousands of song lyrics, titles, artists, and albums using Apache Lucene.
 
 ---
 
 ## Features
 
-- Full-text search using **Apache Lucene**
+-  Full-text search using **Apache Lucene**
 -  Supports multiple fields: `lyrics`, `title`, `artist`, `album`, or all
 -  Highlighted search terms (bold & purple)
 -  Clickable lyrics: Show preview → Expand to full
@@ -17,9 +17,9 @@
 
 ## How It Works
 
-- **Indexing** is done from a CSV using `SongExcel.java`, which reads song data and creates a Lucene index.
-- **Search** is handled by `SongSearch.java`, which uses Lucene queries and highlights matches.
-- **Frontend** uses JSPs (`search.jsp`, `result.jsp`) and styled with `styling.css`.
+- **Indexing** is done from a CSV using `SongExcel.java`, which reads song data and creates a Lucene index. The output files are already inside the `indexedFiles` folder.
+- **Search** is handled by `SongSearch.java`, which uses Lucene queries and highlights matches. Someone can use a main class here to search through songs, without using the Server and the frontend.
+- **Frontend** uses JSPs (`search.jsp`, `result.jsp`, `nextpage.jsp`) and styled with `styling.css`.
 
 ---
 
@@ -34,37 +34,24 @@
 
 ---
 
-## Folder Structure
-
+## **Run tests**
+All tests are stored within the test folder. To execute all of them simply run:
+```sh
+./mvnw test
 ```
-songsearch/
-├── src/
-│   └── main/
-│       ├── java/com/example/songs/
-│       │   ├── SongSearch.java
-│       │   ├── SongExcel.java
-│       │   ├── SongData.java
-│       │   └── SongDocument.java
-│       └── webapp/
-│           ├── search.jsp
-│           ├── result.jsp
-│           └── css/styling.css
-├── inputFile/spotify_millsongdata.csv
-├── indexedFiles/           <-- Output Lucene index
-└── pom.xml
-```
-
----
+Or run individual test classes like:
+<pre>Right-click on SearchForSongsTest.java > Run As > JUnit Test</pre>
 
 ## How to Run
 
 1. Clone or download the project
 2. Import into Eclipse/IntelliJ as a **Maven Web App**
 3. Make sure your Tomcat uses **Java 11**
-4. Run `SongExcel.java` once to build the index:
+4. Optionally run `SongExcel.java` once to build the index:
    ```
    C:/Users/.../indexedFiles/
    ```
+   It already exists in the project.
 5. Deploy to Tomcat and visit `http://localhost:8080/songsearch/SearchForSongs`
 
 ---
@@ -75,5 +62,5 @@ This project is for educational and non-commercial use.
 
 ---
 
-Made by 
-Themistokleia Siakavara
+## **Contributors**
+- Themistokleia Siakavara
